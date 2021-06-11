@@ -22,7 +22,11 @@ Route::post('/store_twitter','TwitterController@store')->name('twitter.store');
 Route::get('/check','TwitterController@check')->name('check');
 Route::get('/reverse','TwitterController@reverse')->name('reverse');
 
+// Auth Twitter
+Route::get('auth/twitter', 'Auth\AuthController@TwitterRedirect');
+Route::get('auth/twitter/callback', 'Auth\AuthController@TwitterCallback');
+Route::get('auth/twitter/logout', 'Auth\AuthController@getLogout');
 
+Auth::routes();
 
-
-
+Route::get('/home', 'HomeController@index')->name('home');
