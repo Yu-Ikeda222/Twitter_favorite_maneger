@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use App\Tweet;
 
 class TwitterController extends Controller
 {
@@ -63,12 +64,19 @@ class TwitterController extends Controller
 
     public function check() {
         $limits = \Twitter::get('application/rate_limit_status');
-        // dd($limits);
+        dd($limits);
         dd($limits->resources->followers);
     }
     
     public function reverse() {
         return view('reverse');
+    }
+
+    public function favorite_list() {
+        $user_id = \Auth::user()->id;
+        $favorite_tweets = Tweet::all();
+
+        return view('favorite_list', ['favorite_tweets' => $favorite_tweets]);
     }
 
 

@@ -12,6 +12,13 @@
       <li><a href="{{route('twitter.show')}}">Twitter</a></li>
     </ul>
 
+<a href="{{route('favorite_list')}}">いいねリスト</a>
+{{-- @if(isset($favorite_list))
+      @for($i = 0; $i < $num_favorite; $i++)
+        <a href="https://twitter.com/{{ Auth::user()->twitter_screen_name }}/status/{{ $favorite_list->ids[$i] }}">https://twitter.com/{{ Auth::user()->twitter_screen_name }}/status/</a>
+      @endfor
+
+@endif --}}
 
 @endsection
 
